@@ -1,0 +1,11 @@
+GET http://localhost:4000/
+
+###
+POST http://localhost:4000/simulate
+Content-Type: "application/json"
+
+{
+    "bundle": ["eowfiew","woefefwjo"],
+    "bundle": ["eowfiew","woefefwjo"],
+    "bundle": ["eowfiew","woefefwjo"],
+}
