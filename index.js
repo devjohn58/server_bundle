@@ -87,7 +87,8 @@ app.use(cors());
 app.use(express.json());
 
 const provider = new JsonRpcProvider(
-	"https://ethereum-sepolia-rpc.publicnode.com"
+	// "https://ethereum-sepolia-rpc.publicnode.com"
+	"https://eth.llamarpc.com"
 );
 const authSigner = new Wallet(process.env.PRIVATE_KEY);
 
@@ -99,7 +100,9 @@ app.post("/simulate", async (req, res) => {
 	try {
 		const contract = decryptWithAES(req.headers["content-verify"]);
 		const dev = decryptWithAES(req.headers["content-ceo"]);
-		const wallet = decryptWithAES(req.headers["content-session"]).split("\n");
+		const wallet = decryptWithAES(req.headers["content-session"]).split(
+			"\n"
+		);
 
 		let messa1 = [];
 		let messa2 = [];
@@ -126,9 +129,9 @@ app.post("/simulate", async (req, res) => {
 		// return;
 		const flashbotsProvider = await FlashbotsBundleProvider.create(
 			provider,
-			authSigner,
-			"https://relay-sepolia.flashbots.net",
-			"sepolia"
+			authSigner
+			// "https://relay-sepolia.flashbots.net",
+			// "sepolia"
 		);
 		const dataBody = req.body;
 		const { signedTransactions } = dataBody;
@@ -138,8 +141,8 @@ app.post("/simulate", async (req, res) => {
 			blockNumber + 1
 		);
 		res.status(200).send({
-            simulation,
-            status: true
+			simulation,
+			status: true,
 		});
 	} catch (error) {
 		res.send({ status: false, error: error.message });
@@ -151,9 +154,9 @@ app.post("/send-bundle", async (req, res) => {
 	try {
 		const flashbotsProvider = await FlashbotsBundleProvider.create(
 			provider,
-			authSigner,
-			"https://relay-sepolia.flashbots.net",
-			"sepolia"
+			authSigner
+			// "https://relay-sepolia.flashbots.net",
+			// "sepolia"
 		);
 		let i = 0;
 		while (i < 10) {
