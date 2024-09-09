@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "dev": "nodemon index.js",
+        "dev-sepolia": "nodemon index-sepolia.js",
+        "dev-mainnet": "nodemon index-main.js",
         "start": "node index.js"
     },
     "dependencies": {
