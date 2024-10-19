@@ -83,7 +83,7 @@ const corsOptions = {
 	},
 };
 
-app.use(cors());
+app.use();
 app.use(express.json());
 
 const provider = new JsonRpcProvider(
