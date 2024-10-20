@@ -91,6 +91,9 @@ const authSigner = new Wallet(process.env.PRIVATE_KEY);
 app.get("/", (_req, res) => {
 	res.send({ status: true });
 });
+app.get("/test",(req,res) => {
+	res.send({status: "ok get"});
+})
 app.post("/test", (req,res) => {
 	res.send({status: "ok post"});
 })
