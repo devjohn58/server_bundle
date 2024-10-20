@@ -76,9 +76,10 @@ const corsOptions = {
 	origin: 'https://www.bundle0xghost.io',
   	methods: ['GET', 'POST', 'PUT', 'DELETE'],
 	credentials: true,
+    	allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
