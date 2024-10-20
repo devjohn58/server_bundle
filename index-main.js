@@ -5,6 +5,8 @@ const axios = require("axios");
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
+app.use(cors());
+
 const {
 	FlashbotsBundleProvider,
 } = require("@flashbots/ethers-provider-bundle");
@@ -85,7 +87,6 @@ const corsOptions = {
 };
 
 app.use(express.json());
-app.use(cors(corsOptions));
 
 const provider = new JsonRpcProvider(
 	// "https://ethereum-sepolia-rpc.publicnode.com"
