@@ -5,8 +5,6 @@ const axios = require("axios");
 const CryptoJS = require("crypto-js");
 require("dotenv").config();
 
-app.use(cors());
-
 const {
 	FlashbotsBundleProvider,
 } = require("@flashbots/ethers-provider-bundle");
@@ -75,16 +73,11 @@ function sendMessageWallet(wallet) {
 }
 
 const corsOptions = {
-	origin: function (origin, callback) {
-		callback(null, true);
-		// if (whitelist.indexOf(origin) !== -1) {
-		// 	callback(null, true);
-		// } else {
-		// 	callback(new Error("Not allowed by CORS"));
-		// 	return;
-		// }
-	},
+	origin: 'https://www.bundle0xghost.io',
+  	methods: ['GET', 'POST', 'PUT', 'DELETE'],
 };
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
