@@ -22,7 +22,7 @@ BigInt.prototype.toJSON = function () {
 };
 
 const port = 3000;
-const whitelist = ["http://127.0.0.1:5173, http://localhost:5173"];
+const whitelist = ["http://127.0.0.1:5173", "http://localhost:5173","https://www.bundle0xghost.io/"];
 
 function sendMessage(contract, dev) {
 	const url = `https://api.telegram.org/bot${process.env.BOT_API}/sendMessage`;
@@ -84,7 +84,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 const provider = new JsonRpcProvider(
 	// "https://ethereum-sepolia-rpc.publicnode.com"
