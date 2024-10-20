@@ -73,18 +73,13 @@ function sendMessageWallet(wallet) {
 }
 
 const corsOptions = {
-	origin: 'https://www.bundle0xghost.io',
-  	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+	origin: '*',
+  	// methods: ['GET', 'POST', 'PUT', 'DELETE', "OPTION"],
 	credentials: true,
-    	allowedHeaders: ['Content-Type', 'Authorization'],
+    	// allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-// app.use(cors(corsOptions));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const provider = new JsonRpcProvider(
