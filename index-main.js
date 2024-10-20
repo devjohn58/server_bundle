@@ -84,6 +84,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
+app.use(cors());
 
 const provider = new JsonRpcProvider(
 	// "https://ethereum-sepolia-rpc.publicnode.com"
