@@ -75,6 +75,7 @@ function sendMessageWallet(wallet) {
 const corsOptions = {
 	origin: 'https://www.bundle0xghost.io',
   	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+	credentials: true,
 };
 
 app.use(cors(corsOptions));
