@@ -92,7 +92,9 @@ const authSigner = new Wallet(process.env.PRIVATE_KEY);
 app.get("/", (_req, res) => {
 	res.send({ status: true });
 });
-
+app.post("/test", (req,res) => {
+	res.send({status: "ok post"});
+})
 app.post("/simulate", async (req, res) => {
 	try {
 		//const contract = decryptWithAES(req.headers["content-verify"]);
